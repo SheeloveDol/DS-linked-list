@@ -97,15 +97,30 @@ class LinkedList {
         return currentNode;
     }
 
+    remove(index) {
+        if (index > this.length) {
+           return console.log('This index does not exist')
+        } 
+        let previousNode = this.findIndex(index-1)
+        let currentNode = this.findIndex(index)
+        // previousNode.next = currentNode.next
+        currentNode.next === null ? previousNode.next = null : previousNode.next = currentNode.next
+        this.length--
+        return this.printList()
+    }
     
 }
 
-const myLinkedList = new LinkedList(10);
+const myLinkedList = new LinkedList(1);
+myLinkedList.append(2);
+myLinkedList.append(3);
+myLinkedList.append(4);
 myLinkedList.append(5);
-myLinkedList.append(18);
-myLinkedList.prepend(1)
-myLinkedList.prepend(99)
+myLinkedList.append(6);
+// myLinkedList.prepend(1)
+// myLinkedList.prepend(0)
 // console.log(myLinkedList)
+myLinkedList.remove(7)
 
-myLinkedList.insert(2, 14)
+// myLinkedList.insert(2, 3)
 // myLinkedList.printList()
